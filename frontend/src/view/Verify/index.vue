@@ -1,11 +1,14 @@
 <template>
   <div class="verify-container">
-    <video class="background-video" autoplay loop muted playsinline>
-      <source src="https://cdn.xcnahida.cn/api/random-video.php" type="video/webm">
+    <!-- <video class="background-video" autoplay loop muted playsinline> -->
+      <!-- <source src="https://cdn.xcnahida.cn/api/random-video.php" type="video/webm"> -->
       <!-- <source src="/back.webm" type="video/webm"> -->
-    </video>
+    <!-- </video> -->
     <!-- 这个虽然好看但是会造成卡顿，慎用。by：FantasyNetwork（github:Nyanyagulugulu） -->
     <!-- <div class="background-overlay"></div> -->
+    <div class="background">
+      <img src="./assets/back.png" alt="Background" class="background-image">
+    </div>
     
     <div class="glass-card">
       <div class="card-header">
@@ -332,7 +335,7 @@ onMounted(() => {
   overflow: hidden;
 }
 
-.background-video {
+.background {
   position: absolute;
   top: 0;
   left: 0;
@@ -342,15 +345,14 @@ onMounted(() => {
   z-index: 0;
 }
 
-.background-video::after {
-  content: '';
+.background-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, transparent 0%, rgba(88, 28, 135, 0.3) 100%);
-  pointer-events: none;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .glass-card {
@@ -1147,7 +1149,7 @@ onMounted(() => {
   text-align: center;
   z-index: 5;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, rgba(88, 28, 135, 0.4) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.8) 100%);
 }
 
 .footer::before {
