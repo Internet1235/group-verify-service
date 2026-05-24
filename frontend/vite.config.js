@@ -11,7 +11,7 @@ export default defineConfig({
   },
   base: '/static/verify/',
   build: {
-    outDir: '../backend/public/static/verify',
+    outDir: './dist',
     emptyOutDir: true,
     rollupOptions: {
       output: {
