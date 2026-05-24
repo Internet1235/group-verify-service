@@ -17,6 +17,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
         unzip \
         libzip-dev \
+        sqlite3 \
     && docker-php-ext-install zip \
     && rm -rf /var/lib/apt/lists/*
 

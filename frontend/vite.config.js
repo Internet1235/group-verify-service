@@ -12,18 +12,7 @@ export default defineConfig({
   base: '/static/verify/',
   build: {
     outDir: './dist',
-    emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          const s = String(id || '');
-          if (!s.includes('node_modules')) return;
-          if (s.includes('@arco-design')) return 'arco';
-          if (s.includes(`${path.sep}vue${path.sep}`) || s.includes(`${path.sep}@vue${path.sep}`)) return 'vue';
-          return 'vendor';
-        }
-      }
-    }
+    emptyOutDir: true
   }
 });
 

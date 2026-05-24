@@ -210,9 +210,21 @@ class Index extends BaseController
 
     private function buildEnvContent(array $values): string
     {
+        $dbPath = $values['db_sqlite_path'] ?? './database/geetest.db';
+        if (str_starts_with($dbPath, './')) {
+            $dbPath = '../' . substr($dbPath, 2);
+        }
+
         $lines = [];
+        $lines[] = 'APP_DEBUG = ' . $this->envEncode($values['app_debug'] ?? 'false');
         $lines[] = 'DB_DRIVER = sqlite';
-        $lines[] = 'DB_SQLITE_PATH = ' . $this->envEncode($values['db_sqlite_path']);
+        $lines[] = 'DB_SQLITE_PATH = ' . $this->envEncode($dbPath);
+        $lines[] = 'GEETEST_CAPTCHA_ID = ' . $this->envEncode($values['geetest_captcha_id'] ?? '');
+        $lines[] = 'GEETEST_CAPTCHA_KEY = ' . $this->envEncode($values['geetest_captcha_key'] ?? '');
+        $lines[] = 'GEETEST_API_SERVER = ' . $this->envEncode($values['geetest_api_server'] ?? 'https://gcaptcha4.geetest.com');
+        $lines[] = 'GEETEST_CODE_EXPIRE = ' . $this->envEncode($values['geetest_code_expire'] ?? '300');
+        $lines[] = 'API_KEY = ' . $this->envEncode($values['api_key'] ?? '');
+        $lines[] = 'SALT = ' . $this->envEncode($values['salt'] ?? '');
 
         return implode("\n", $lines) . "\n";
     }
