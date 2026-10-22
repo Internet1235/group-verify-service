@@ -27,8 +27,7 @@
         "topthink/think-helper": "^3.1",
         "topthink/think-view": "^2.0",
         "league/flysystem": "^1.1",
-        "topthink/think-template": "^3.0",
-        "zhaoyj/think-helper": "*"
+        "topthink/think-template": "^3.0"
     },
     "require-dev": {
         "topthink/think-dumper": "^1.0",
