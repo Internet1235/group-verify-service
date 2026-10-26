@@ -35,7 +35,6 @@ if (!function_exists('curl')) {
         $content = curl_exec($ch);
         $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $error = curl_error($ch);
-        curl_close($ch);
 
         return [
             'http_code' => $httpCode,
